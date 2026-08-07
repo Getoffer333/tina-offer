@@ -422,7 +422,7 @@ function listRowHtml(x){
     : "";
   const heatHtml = x.hotScore>0
     ? `<div class="heat"><b>${Math.round(x.hotScore)}</b><small>热度</small></div>`
-    : "";
+    : `<div class="heat"><b>–</b></div>`;
   return `<div class="row">
     <div class="company" title="${x.companyName||"未知公司"}">${x.companyName||"未知公司"}</div>
     <h3 title="${x.name||"-"}">${x.name||"-"}</h3>
