@@ -48,7 +48,7 @@ header{background:linear-gradient(160deg,var(--brand) 0%,var(--brand2) 100%);col
 .stat.hot b{color:var(--gold2)}
 .stat.red b{color:#ff8a75}
 /* ===== 主区 ===== */
-main{max-width:1080px;margin:0 auto;padding:18px 20px 60px}
+main{max-width:1280px;margin:0 auto;padding:18px 20px 60px}
 .toolbar{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;position:sticky;top:10px;z-index:50;box-shadow:0 3px 14px rgba(60,50,30,.07)}
 .chips{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
 .chip{padding:6px 14px;border:1px solid var(--line2);border-radius:20px;font-size:12.5px;background:#fff;cursor:pointer;color:var(--ink2);font-family:inherit;transition:all .15s}
@@ -68,53 +68,62 @@ main{max-width:1080px;margin:0 auto;padding:18px 20px 60px}
 select{padding:8px 10px;border:1px solid var(--line2);border-radius:8px;font-size:13px;background:#fff;color:var(--ink);outline:none;font-family:inherit;max-width:170px}
 .count-line{font-size:13px;color:var(--ink2);margin:16px 2px 12px;letter-spacing:.5px}
 .count-line b{color:var(--red)}
-/* ===== 列表视图 ===== */
-.list{display:flex;flex-direction:column;gap:10px}
-.list .row{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;transition:border-color .18s, box-shadow .18s, transform .18s;position:relative}
+/* ===== 列表视图（多列对齐） ===== */
+.list{display:flex;flex-direction:column;gap:8px}
+.list .row{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 18px;display:grid;grid-template-columns:190px minmax(0,1fr) 180px 150px 86px 108px;gap:16px;align-items:center;transition:border-color .18s, box-shadow .18s}
 .list .row:hover{border-color:var(--gold);box-shadow:0 4px 16px rgba(60,50,30,.08)}
-.list .row::before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:3px;border-radius:2px;background:var(--gold);opacity:0;transition:opacity .18s}
-.list .row:hover::before{opacity:1}
-.list .main{flex:1;min-width:0}
-.list .topline{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.list .company{font-size:13px;color:var(--ink2);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.list .company b{color:var(--brand);font-size:15px;font-weight:700;letter-spacing:.5px}
-.badge{font-size:11px;padding:2px 8px;border-radius:4px;background:#efe9db;color:var(--brand2);letter-spacing:.5px;white-space:nowrap}
-.badge.green{background:#e4efe4;color:#2e6b3e}
-.badge.red{background:#f6e3de;color:var(--red)}
-.badge.gray{background:#eee9de;color:var(--ink2)}
-.list h3{font-size:16.5px;font-weight:600;margin:8px 0 10px;line-height:1.55}
-.list h3 a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid transparent;transition:color .15s,border-color .15s}
-.list h3 a:hover{border-bottom-color:var(--gold);color:var(--brand)}
-.tags{display:flex;gap:6px;flex-wrap:wrap}
-.tag{font-size:12px;color:var(--ink2);background:transparent;border:1px solid var(--line2);padding:2px 9px;border-radius:4px;white-space:nowrap}
+.list .company{font-size:14.5px;font-weight:700;color:var(--brand);text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.list h3{font-size:14.5px;font-weight:600;margin:0;line-height:1.4;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.list h3 a{color:var(--ink);text-decoration:none}
+.list h3 a:hover{color:var(--brand)}
+.list .tags{display:flex;gap:5px;flex-wrap:nowrap;overflow:hidden;justify-content:center}
+.tag{font-size:11.5px;color:var(--ink2);background:transparent;border:1px solid var(--line2);padding:1px 7px;border-radius:4px;white-space:nowrap;flex-shrink:0}
 .tag.place{border-style:dashed;color:var(--brand2)}
-.meta{display:flex;gap:16px;margin-top:10px;font-size:12.5px;color:var(--ink2);flex-wrap:wrap}
-.meta .pub{color:var(--ink2);opacity:.75}
-.meta .deadline{color:var(--ink);font-weight:600}
-.meta .deadline.urgent{color:var(--red);font-weight:700}
-.meta .deadline.soon{color:#a86f0f;font-weight:700}
-.actions{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
-.badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line2)}
-.btn{display:inline-block;padding:7px 16px;border-radius:6px;font-size:13px;text-decoration:none;font-weight:500;font-family:inherit;border:1px solid transparent;letter-spacing:.5px;transition:all .15s}
-.btn-primary{background:var(--brand);color:#fff}
-.btn-primary:hover{background:var(--brand2);box-shadow:0 3px 10px rgba(28,42,82,.25)}
-.btn-ghost{border-color:var(--line2);color:var(--ink2);background:#fff}
-.btn-ghost:hover{border-color:var(--gold);color:var(--brand)}
-.heat{text-align:right;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;line-height:1.1}
-.heat b{font-size:18px;color:var(--gold);font-weight:700}
-.heat small{font-size:11px;color:var(--ink2);margin-top:2px}
+.list .meta{display:flex;gap:10px;font-size:12.5px;color:var(--ink2);justify-content:center;white-space:nowrap}
+.list .meta .pub{display:none}
+.list .deadline{color:var(--ink);font-weight:600}
+.list .deadline.urgent{color:var(--red);font-weight:700}
+.list .deadline.soon{color:#a86f0f;font-weight:700}
+.list .actions{margin:0;display:flex;justify-content:flex-end}
+.list .heat{text-align:center;flex-shrink:0}
+.list .heat b{font-size:16px;color:var(--gold);font-weight:700}
+.list .heat small{font-size:10.5px;color:var(--ink2)}
+.list .badges{display:none}
+.list .topline{display:contents}
+.list .main{display:contents}
 /* ===== 卡片视图 ===== */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
 .grid .row{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;background:var(--card);transition:border-color .18s, box-shadow .18s, transform .18s}
 .grid .row:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(60,50,30,.1);transform:translateY(-2px)}
 .grid .row::before{display:none}
-.grid .heat{flex-direction:row;align-items:center;gap:4px}
-.grid .heat b{font-size:15px}
-.grid .heat small{font-size:11px;margin-top:0}
+.grid .topline{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.grid .heat{text-align:right;flex-shrink:0}
+.grid .heat b{font-size:15px;color:var(--gold);font-weight:700}
+.grid .heat small{font-size:11px;color:var(--ink2)}
+.grid .company{font-size:14px;color:var(--brand);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.grid .company b{color:var(--brand);font-size:14.5px;font-weight:700;letter-spacing:.5px}
 .grid h3{font-size:15.5px;font-weight:600;margin:9px 0 10px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:46px}
-.grid .badges{margin-top:10px;padding-top:10px}
-.grid .meta{font-size:12px}
-.grid .btn{padding:6px 14px;font-size:12.5px}
+.grid h3 a{color:var(--ink);text-decoration:none}
+.grid h3 a:hover{color:var(--brand)}
+.grid .tags{display:flex;gap:6px;flex-wrap:wrap}
+.grid .tag{font-size:12px;color:var(--ink2);background:transparent;border:1px solid var(--line2);padding:2px 9px;border-radius:4px;white-space:nowrap}
+.grid .tag.place{border-style:dashed;color:var(--brand2)}
+.grid .meta{display:flex;gap:16px;margin-top:10px;font-size:12.5px;color:var(--ink2);flex-wrap:wrap}
+.grid .meta .pub{color:var(--ink2);opacity:.75}
+.grid .deadline{color:var(--ink);font-weight:600}
+.grid .deadline.urgent{color:var(--red);font-weight:700}
+.grid .deadline.soon{color:#a86f0f;font-weight:700}
+.grid .actions{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+.grid .badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line2)}
+.badge{font-size:11px;padding:2px 8px;border-radius:4px;background:#efe9db;color:var(--brand2);letter-spacing:.5px;white-space:nowrap}
+.badge.green{background:#e4efe4;color:#2e6b3e}
+.badge.red{background:#f6e3de;color:var(--red)}
+.badge.gray{background:#eee9de;color:var(--ink2)}
+.btn{display:inline-block;padding:7px 16px;border-radius:6px;font-size:13px;text-decoration:none;font-weight:500;font-family:inherit;border:1px solid transparent;letter-spacing:.5px;transition:all .15s}
+.btn-primary{background:var(--brand);color:#fff}
+.btn-primary:hover{background:var(--brand2);box-shadow:0 3px 10px rgba(28,42,82,.25)}
+.btn-ghost{border-color:var(--line2);color:var(--ink2);background:#fff}
+.btn-ghost:hover{border-color:var(--gold);color:var(--brand)}
 .empty{padding:60px 20px;text-align:center;color:var(--ink2)}
 .pager{display:flex;justify-content:center;gap:8px;margin-top:26px;align-items:center;flex-wrap:wrap}
 .pager button{padding:8px 14px;border:1px solid var(--line2);background:#fff;border-radius:6px;cursor:pointer;font-size:13px;font-family:inherit;color:var(--ink)}
@@ -125,8 +134,13 @@ footer{text-align:center;color:var(--ink2);font-size:12px;padding:20px;border-to
 footer .fbrand{font-size:13px;color:var(--brand);font-weight:600;margin-bottom:4px}
 @media(max-width:640px){
   .stats .stat{min-width:calc(50% - 5px)}
-  .list .row{flex-direction:column}
-  .heat{margin-left:0;text-align:left}
+  .list .row{display:flex;flex-direction:column;align-items:stretch;gap:8px;padding:14px 16px}
+  .list .company{white-space:normal;text-align:left}
+  .list h3{white-space:normal;text-align:left}
+  .list .tags{flex-wrap:wrap;justify-content:flex-start}
+  .list .meta{justify-content:flex-start}
+  .list .actions{justify-content:flex-start}
+  .list .heat{text-align:left}
   .lock-card{padding:28px 22px}
 }
 </style>
@@ -397,6 +411,29 @@ function getItems(){
   return arr;
 }
 
+/* 列表视图：多列表格行（公司 | 公告 | 城市学历 | 截止 | 热度 | 链接） */
+function listRowHtml(x){
+  const tags = [
+    ...(x.cityNames||[]).slice(0,3).map(c=>`<span class="tag place">${c}</span>`),
+    ...(x.degreeNames||[]).slice(0,2).map(c=>`<span class="tag">${c}</span>`)
+  ].join("");
+  const applyHtml = x.link
+    ? `<a class="btn btn-primary" href="${x.link}" target="_blank" rel="noopener">官方链接</a>`
+    : "";
+  const heatHtml = x.hotScore>0
+    ? `<div class="heat"><b>${Math.round(x.hotScore)}</b><small>热度</small></div>`
+    : "";
+  return `<div class="row">
+    <div class="company" title="${x.companyName||"未知公司"}">${x.companyName||"未知公司"}</div>
+    <h3 title="${x.name||"-"}">${x.name||"-"}</h3>
+    <div class="tags">${tags}</div>
+    <div class="meta"><span>${deadlineHtml(x)}</span></div>
+    ${heatHtml}
+    <div class="actions">${applyHtml}</div>
+  </div>`;
+}
+
+/* 卡片视图：独立卡片（标题纯文本，无超链接） */
 function cardHtml(x){
   const badges = [
     ...(x.classTypeNames||[]).slice(0,2).map(n=>`<span class="badge">${n}</span>`),
@@ -418,7 +455,7 @@ function cardHtml(x){
       <div class="company"><b>${x.companyName||"未知公司"}</b></div>
       ${heatHtml}
     </div>
-    <h3>${x.link?`<a href="${x.link}" target="_blank" rel="noopener">${x.name||"-"}</a>`:(x.name||"-")}</h3>
+    <h3>${x.name||"-"}</h3>
     <div class="tags">${tags}</div>
     <div class="meta"><span>${deadlineHtml(x)}</span><span class="pub">${(x.publishedAt||x.createdAt||"").slice(5)} 发布</span></div>
     <div class="actions">${applyHtml}</div>
@@ -439,7 +476,8 @@ function render(){
   if(!slice.length){
     listEl.innerHTML = `<div class="empty">没有匹配的机会，换个关键词试试～</div>`;
   }else{
-    listEl.innerHTML = slice.map(cardHtml).join("");
+    const fn = viewMode === "grid" ? cardHtml : listRowHtml;
+    listEl.innerHTML = slice.map(fn).join("");
   }
   $("pager").innerHTML = pages > 1 ? `
     <button onclick="goPage(1)" ${page===1?"disabled":""}>«</button>
