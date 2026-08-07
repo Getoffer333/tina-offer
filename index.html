@@ -69,41 +69,52 @@ select{padding:8px 10px;border:1px solid var(--line2);border-radius:8px;font-siz
 .count-line{font-size:13px;color:var(--ink2);margin:16px 2px 12px;letter-spacing:.5px}
 .count-line b{color:var(--red)}
 /* ===== 列表视图 ===== */
-.list{display:flex;flex-direction:column}
-.list .row{background:var(--card);border:1px solid var(--line);border-bottom:none;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;transition:background .15s}
-.list .row:last-child{border-bottom:1px solid var(--line);border-radius:0 0 10px 10px}
-.list .row:first-child{border-radius:10px 10px 0 0}
-.list .row:hover{background:#fff}
+.list{display:flex;flex-direction:column;gap:10px}
+.list .row{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;transition:border-color .18s, box-shadow .18s, transform .18s;position:relative}
+.list .row:hover{border-color:var(--gold);box-shadow:0 4px 16px rgba(60,50,30,.08)}
+.list .row::before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:3px;border-radius:2px;background:var(--gold);opacity:0;transition:opacity .18s}
+.list .row:hover::before{opacity:1}
 .list .main{flex:1;min-width:0}
+.list .topline{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .list .company{font-size:13px;color:var(--ink2);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.list .company b{color:var(--ink);font-size:14px;font-weight:700}
-.badge{font-size:11px;padding:2px 8px;border-radius:3px;background:#efe9db;color:var(--brand2);letter-spacing:.5px}
+.list .company b{color:var(--brand);font-size:15px;font-weight:700;letter-spacing:.5px}
+.badge{font-size:11px;padding:2px 8px;border-radius:4px;background:#efe9db;color:var(--brand2);letter-spacing:.5px;white-space:nowrap}
 .badge.green{background:#e4efe4;color:#2e6b3e}
 .badge.red{background:#f6e3de;color:var(--red)}
 .badge.gray{background:#eee9de;color:var(--ink2)}
-.list h3{font-size:16.5px;font-weight:600;margin:7px 0 9px;line-height:1.5}
-.list h3 a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid transparent}
+.list h3{font-size:16.5px;font-weight:600;margin:8px 0 10px;line-height:1.55}
+.list h3 a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid transparent;transition:color .15s,border-color .15s}
 .list h3 a:hover{border-bottom-color:var(--gold);color:var(--brand)}
-.tags{display:flex;gap:8px;flex-wrap:wrap}
-.tag{font-size:12px;color:var(--ink2);background:transparent;border:1px solid var(--line2);padding:2px 9px;border-radius:3px}
-.tag.place{border-style:dashed}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:12px;color:var(--ink2);background:transparent;border:1px solid var(--line2);padding:2px 9px;border-radius:4px;white-space:nowrap}
+.tag.place{border-style:dashed;color:var(--brand2)}
 .meta{display:flex;gap:16px;margin-top:10px;font-size:12.5px;color:var(--ink2);flex-wrap:wrap}
+.meta .pub{color:var(--ink2);opacity:.75}
 .meta .deadline{color:var(--ink);font-weight:600}
 .meta .deadline.urgent{color:var(--red);font-weight:700}
 .meta .deadline.soon{color:#a86f0f;font-weight:700}
 .actions{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
-.btn{display:inline-block;padding:7px 14px;border-radius:6px;font-size:13px;text-decoration:none;font-weight:500;font-family:inherit;border:1px solid transparent;letter-spacing:.5px}
+.badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line2)}
+.btn{display:inline-block;padding:7px 16px;border-radius:6px;font-size:13px;text-decoration:none;font-weight:500;font-family:inherit;border:1px solid transparent;letter-spacing:.5px;transition:all .15s}
 .btn-primary{background:var(--brand);color:#fff}
-.btn-primary:hover{background:var(--brand2)}
+.btn-primary:hover{background:var(--brand2);box-shadow:0 3px 10px rgba(28,42,82,.25)}
 .btn-ghost{border-color:var(--line2);color:var(--ink2);background:#fff}
 .btn-ghost:hover{border-color:var(--gold);color:var(--brand)}
-.heat{margin-left:auto;text-align:right;flex-shrink:0}
-.heat b{font-size:17px;color:#a86f0f}
-.heat small{display:block;font-size:11px;color:var(--ink2)}
+.heat{text-align:right;flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;line-height:1.1}
+.heat b{font-size:18px;color:var(--gold);font-weight:700}
+.heat small{font-size:11px;color:var(--ink2);margin-top:2px}
 /* ===== 卡片视图 ===== */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
-.grid .row{flex-direction:column;border:1px solid var(--line);border-radius:10px;border-bottom:1px solid var(--line)}
-.grid .heat{margin-left:0;text-align:left;margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.grid .row{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;background:var(--card);transition:border-color .18s, box-shadow .18s, transform .18s}
+.grid .row:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(60,50,30,.1);transform:translateY(-2px)}
+.grid .row::before{display:none}
+.grid .heat{flex-direction:row;align-items:center;gap:4px}
+.grid .heat b{font-size:15px}
+.grid .heat small{font-size:11px;margin-top:0}
+.grid h3{font-size:15.5px;font-weight:600;margin:9px 0 10px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:46px}
+.grid .badges{margin-top:10px;padding-top:10px}
+.grid .meta{font-size:12px}
+.grid .btn{padding:6px 14px;font-size:12.5px}
 .empty{padding:60px 20px;text-align:center;color:var(--ink2)}
 .pager{display:flex;justify-content:center;gap:8px;margin-top:26px;align-items:center;flex-wrap:wrap}
 .pager button{padding:8px 14px;border:1px solid var(--line2);background:#fff;border-radius:6px;cursor:pointer;font-size:13px;font-family:inherit;color:var(--ink)}
@@ -371,7 +382,11 @@ function getItems(){
   if(chip === "d3") arr = arr.filter(x=>{ const d=daysLeft(x); return d!==null && d<=3 && d>=-1; });
   if(chip === "d7") arr = arr.filter(x=>{ const d=daysLeft(x); return d!==null && d<=7 && d>=-1; });
   if(chip === "weeknew") arr = arr.filter(x=>{ const c=(x.createdAt||""); return c >= new Date(now.getTime()-6*86400000).toISOString().slice(0,10); });
-  if(sortBy === "latest") arr.sort((a,b)=>(b.createdAt||"").localeCompare(a.createdAt||""));
+  if(sortBy === "latest") arr.sort((a,b)=>{
+    const c = (b.createdAt||"").localeCompare(a.createdAt||"");
+    if(c !== 0) return c;
+    return (b.announcementId||0) - (a.announcementId||0);
+  });
   if(sortBy === "deadline") arr.sort((a,b)=>{
     if(a.noDeadline && b.noDeadline) return 0;
     if(a.noDeadline) return 1;
@@ -389,21 +404,25 @@ function cardHtml(x){
     ...(x.industryTypeNames||[]).slice(0,1).map(n=>`<span class="badge gray">${n}</span>`)
   ].join("");
   const tags = [
-    ...(x.cityNames||[]).slice(0,3).map(c=>`<span class="tag place">📍${c}</span>`),
+    ...(x.cityNames||[]).slice(0,3).map(c=>`<span class="tag place">${c}</span>`),
     ...(x.degreeNames||[]).slice(0,2).map(c=>`<span class="tag">${c}</span>`)
   ].join("");
   const applyHtml = x.link
     ? `<a class="btn btn-primary" href="${x.link}" target="_blank" rel="noopener">官方链接</a>`
     : "";
+  const heatHtml = x.hotScore>0
+    ? `<div class="heat"><b>${Math.round(x.hotScore)}</b><small>热度</small></div>`
+    : "";
   return `<div class="row">
-    <div class="main">
-      <div class="company"><b>${x.companyName||"未知公司"}</b>${badges}</div>
-      <h3>${x.link?`<a href="${x.link}" target="_blank" rel="noopener">${x.name||"-"}</a>`:(x.name||"-")}</h3>
-      <div class="tags">${tags}</div>
-      <div class="meta"><span>${deadlineHtml(x)}</span><span>${(x.publishedAt||x.createdAt||"")} 发布</span></div>
-      <div class="actions">${applyHtml}</div>
+    <div class="topline">
+      <div class="company"><b>${x.companyName||"未知公司"}</b></div>
+      ${heatHtml}
     </div>
-    <div class="heat">${x.hotScore>0?`<b>${Math.round(x.hotScore)}</b><small>热度</small>`:"<small>–</small>"}</div>
+    <h3>${x.link?`<a href="${x.link}" target="_blank" rel="noopener">${x.name||"-"}</a>`:(x.name||"-")}</h3>
+    <div class="tags">${tags}</div>
+    <div class="meta"><span>${deadlineHtml(x)}</span><span class="pub">${(x.publishedAt||x.createdAt||"").slice(5)} 发布</span></div>
+    <div class="actions">${applyHtml}</div>
+    <div class="badges">${badges}</div>
   </div>`;
 }
 
