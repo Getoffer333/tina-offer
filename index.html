@@ -241,9 +241,11 @@ function showLock(){
   setTimeout(()=>$("passInput").focus(), 100);
 }
 function hideLock(){ $("lock").classList.add("hidden"); }
+/* 永久口令：长期有效，与每日口令二选一即可解锁（如需更换请同步改部署版本） */
+const PERMANENT_CODE = "TINA2026";
 function tryUnlock(){
   const v = $("passInput").value.trim().toUpperCase();
-  if(v === dailyCode()){
+  if(v === dailyCode() || v === PERMANENT_CODE){
     localStorage.setItem(TODAY_KEY, "1");
     unlocked = true;
     hideLock();
